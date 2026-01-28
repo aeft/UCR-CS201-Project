@@ -2,7 +2,7 @@
 
 This project implements a Local Value Numbering (LVN) optimization pass for LLVM.
 
-## Task Description (Step-2)
+## Task Description
 
 Implement basic local value numbering (LVN) to identify redundant computations:
 
@@ -88,6 +88,8 @@ Edit your implementation in:
 ```
 LocalValueNumbering.cpp
 ```
+
+You only need to edit this file for the project.
 
 ### 3. Build and Test
 
