@@ -9,7 +9,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 PROJ="$1"
-IMAGE="ghcr.io/UCR-CS201/grader:llvm21"
+IMAGE="ghcr.io/ucr-cs201/grader:llvm21"
 
 # Pull prebuilt grader image (fast & stable)
 docker pull "$IMAGE"
