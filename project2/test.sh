@@ -166,7 +166,7 @@ run_tests() {
   for ((i=0; i<num_of_tests; i++)); do
     if [ ! -f "expected/test$i.txt" ] || [ ! -f "output/test$i.txt" ]; then
       echo -e "${RED}test$i: FAILED - Missing files${NC}"
-      ((failed++))
+      failed=$((failed + 1))
     else
       # Replace 'ptr' with 'i32*' for compatibility
       eval "$SED_INPLACE 's/ptr/i32*/g' output/test$i.txt"
@@ -174,10 +174,10 @@ run_tests() {
       # Compare with expected output (ignore whitespace differences)
       if diff -b expected/test$i.txt output/test$i.txt > /dev/null 2>&1; then
         echo -e "${GREEN}test$i: PASSED${NC}"
-        ((passed++))
+        passed=$((passed + 1))
       else
         echo -e "${RED}test$i: FAILED${NC}"
-        ((failed++))
+        failed=$((failed + 1))
       fi
     fi
   done
