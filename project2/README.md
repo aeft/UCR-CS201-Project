@@ -98,9 +98,9 @@ Run all tests:
 ./test.sh
 ```
 
-Run a specific test file (no validation):
+Run a specific test file (without validation; place your custom test file in `./test`):
 ```bash
-./test.sh -f <file>
+./test.sh -f test_custom.c
 ```
 
 The script will automatically:
