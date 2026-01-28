@@ -1,0 +1,39 @@
+# Build output directories
+build/
+test/output/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Compiled binaries and libraries
+*.so
+*.dylib
+*.a
+*.bc
+*.ll
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log
+*.txt.bak
+
+# Python (if using any scripts)
+__pycache__/
+*.pyc
+*.pyo
+
+# Test artifacts
+*.out
+*.exe
