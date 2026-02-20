@@ -27,6 +27,11 @@ case "$PROJ" in
     # Canonical test entry (must print Results: X passed, Y failed)
     TEST_CMD='cd project2 && ./test.sh'
     ;;
+  project3)
+    STUDENT_CPP_SRC="/submission/project3/LivenessAnalysis.cpp"
+    BASE_CPP_DST="/work/project3/LivenessAnalysis.cpp"
+    TEST_CMD='cd project3 && ./test.sh'
+    ;;
   *)
     echo "Unknown project: $PROJ"
     exit 1

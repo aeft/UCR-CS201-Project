@@ -1,0 +1,21 @@
+----- entry -----
+UEVAR: b c
+VARKILL: e
+LIVEOUT: a b c e
+----- if.then -----
+UEVAR: a
+VARKILL: e
+LIVEOUT: c e
+----- if.else -----
+UEVAR: b c
+VARKILL: a
+LIVEOUT: c e
+----- if.end -----
+UEVAR: c e
+VARKILL: a
+LIVEOUT: a
+----- Dead Code -----
+  %4 = load i32, ptr %b, align 4
+  %5 = load i32, ptr %c, align 4
+  %add1 = add nsw i32 %4, %5
+  store i32 %add1, ptr %a, align 4

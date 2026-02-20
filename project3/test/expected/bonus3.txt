@@ -1,0 +1,37 @@
+----- entry -----
+UEVAR:
+VARKILL: a b i
+LIVEOUT: a b c d e i
+----- for.cond -----
+UEVAR: i
+VARKILL:
+LIVEOUT: a b c d e i
+----- for.body -----
+UEVAR: a d
+VARKILL: c e
+LIVEOUT: a b c d e i
+----- for.inc -----
+UEVAR: i
+VARKILL: i
+LIVEOUT: a b c d e i
+----- for.end -----
+UEVAR: d e
+VARKILL:
+LIVEOUT: b c d e
+----- if.then -----
+UEVAR: c d
+VARKILL: f
+LIVEOUT: e
+----- if.else -----
+UEVAR: b e
+VARKILL: e
+LIVEOUT: e
+----- if.end -----
+UEVAR: e
+VARKILL:
+LIVEOUT: e
+----- Dead Code -----
+  %8 = load i32, ptr %d, align 4
+  %9 = load i32, ptr %c, align 4
+  %mul2 = mul nsw i32 %8, %9
+  store i32 %mul2, ptr %f, align 4
