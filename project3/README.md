@@ -76,9 +76,9 @@ This is an **optional** bonus task. It does not affect your base grade.
 
 After computing liveness analysis, implement Dead Code Elimination (DCE) using use-def chains and topological sort. The idea: if a `store` instruction writes to a variable that is NOT in the block's LIVEOUT set, that store is **dead**. Furthermore, the instructions that produced the stored value may also be dead if they have no other live uses.
 
-You can use any algorithm you want. For example, as an alternative to topological sorting, you can also use an iterative algorithm for this task. But you cannot hack the test (e.g., just return a fixed result).
+You can use any algorithm you want, but you cannot hack the test (e.g., just return a fixed result). Below are two algorithms for reference.
 
-### Algorithm
+### Algorithm 1
 
 1. **Identify dead stores**: After liveness analysis, scan each block for `store` instructions where the destination variable is NOT in LIVEOUT of that block. These are dead stores.
 
@@ -87,6 +87,16 @@ You can use any algorithm you want. For example, as an alternative to topologica
 3. **Propagate deadness**: Starting from the dead stores, propagate deadness upstream through operands. An instruction is dead if all of its uses are dead.
 
 4. **Collect and print**: Gather all dead instructions and print them in their original IR appearance order.
+
+You can use topological sort or an iterative algorithm for step 3.
+
+### Algorithm 2
+
+Alternatively, identify seed instructions that are known to be useful, then use DFS to backward-propagate through operands to mark other useful instructions. Any instruction not marked at the end is dead.
+
+### Tips
+
+- In this task, the dead instruction types can only be `Store`, `Load`, `Add`, `Sub`, `Mul`, `SDiv`, `UDiv`.
 
 ### API Hints
 
